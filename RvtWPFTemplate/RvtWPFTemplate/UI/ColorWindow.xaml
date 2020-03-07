@@ -18,7 +18,7 @@
                                    CommandParameter="{Binding ElementName=Win}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -34,7 +34,7 @@
             <RowDefinition ></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border></Border>
+        <!--<Border></Border>-->
         <GroupBox Grid.Row="0" Margin="7" VerticalAlignment="Center" Height="30">
             <Grid VerticalAlignment="Center">
                 <TextBlock Text="Color Element"
@@ -51,8 +51,7 @@
                                         Command="{Binding ColorSettingsElement }"
                                         CommandParameter="{Binding ElementName=colorPickerElement}"
                                         Background="{Binding RvtColorElement, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource ColorConverter}}"
-                                        BorderBrush="Transparent"
-                                        >
+                                        BorderBrush="Transparent">
                     <Button.ToolTip>
                         <ToolTip>
                             Click me to change color
@@ -61,7 +60,7 @@
                 </Button>
             </Grid>
         </GroupBox>
-       
+
         <Grid Grid.Row="1">
             <GroupBox Header="Element Options"
                       Margin="7 15 7 7"
@@ -75,43 +74,36 @@
                                      Content="Only Visible"
                                      Margin="0 0 0 5"
                                       IsChecked="{Binding Path=SelectOption, Mode =TwoWay,UpdateSourceTrigger=PropertyChanged,  Converter={StaticResource OptionConverter}, ConverterParameter= OnlyVisible}"
-                                     IsThreeState="False"/>
+                                     IsThreeState="False" />
                         <RadioButton GroupName="view"
                                      Name="radElementSelected"
                                      Content="Selected Elements"
                                      IsThreeState="False"
-                                     IsChecked="{Binding Path=SelectOption,Mode =TwoWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource OptionConverter}, ConverterParameter= SelectedElements}"
-                                     >
+                                     IsChecked="{Binding Path=SelectOption,Mode =TwoWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource OptionConverter}, ConverterParameter= SelectedElements}">
                             <RadioButton.ToolTip>
                                 <ToolTip>
                                     Need select elements before executing this function.
                                 </ToolTip>
                             </RadioButton.ToolTip>
-
                         </RadioButton>
-
                     </StackPanel>
-
                 </Grid>
-
             </GroupBox>
-          
         </Grid>
-        
+
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Right"
-                        >
+                        HorizontalAlignment="Right">
                 <Button Content="Cancel"
                         Name="btnCancel"
                         IsCancel="True"
                         Width="80"
-                        Margin="0 0 5 0" 
+                        Margin="0 0 5 0"
                         Height="20"
                          Style="{StaticResource BtnDefautStyle}"
                          Command="{Binding CancelCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
                 <Button Content="Apply"
                         IsDefault="True"
                         Name="btnColor"
@@ -119,11 +111,8 @@
                         Width="80"
                         Height="20"
                         Style="{StaticResource BtnDefautStyle}"
-                        Command="{Binding ApplyCommand}"/>
+                        Command="{Binding ApplyCommand}" />
             </StackPanel>
         </Grid>
     </Grid>
-   
-   
-   
 </Window>
